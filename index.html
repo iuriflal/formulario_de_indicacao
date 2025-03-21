@@ -4,49 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Indicação</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-        }
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #25D366;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-    </style>
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- fontes -->
+    <link rel="shortcut icon" href="img/logo.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="js/main.js"></script>
 </head>
 <body>
     <div class="container">
-        <h3>Indique cliente:</h3>
+        <div class="header">
+            <img src="img/logo.png" alt="logo">
+            <h1>
+                Formulário<br>
+                de Indicação
+            </h1>
+        </div>
         <label>Nome do Indicado:</label>
         <input type="text" id="nome_indicado" placeholder="Nome completo" required>
 
@@ -60,29 +41,13 @@
         <input type="text" id="seu_nome" placeholder="Seu nome" required>
 
         <button onclick="enviarWhatsapp()">Enviar via WhatsApp</button>
+
+        <div class="footer">
+            <img src="img/logo.png" alt="logo">
+            <span>
+                Formulário de indicação © / 2025
+            </span>
+        </div>
     </div>
-
-    <script>
-        function enviarWhatsapp() {
-            let nomeIndicado = document.getElementById("nome_indicado").value;
-            let telefoneIndicado = document.getElementById("telefone_indicado").value;
-            let emailIndicado = document.getElementById("email_indicado").value;
-            let seuNome = document.getElementById("seu_nome").value;
-
-            if (!nomeIndicado || !telefoneIndicado || !seuNome) {
-                alert("Por favor, preencha todos os campos obrigatórios.");
-                return;
-            }
-
-            let mensagem = `Olá! Gostaria de indicar um cliente.
-            \n📌 Nome: ${nomeIndicado}
-            \n📞 Telefone: ${telefoneIndicado}
-            ${emailIndicado ? `\n📧 Email: ${emailIndicado}` : ''}
-            \n🔹 Indicado por: ${seuNome}`;
-            
-            let url = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
-            window.open(url, '_blank');
-        }
-    </script>
 </body>
 </html>

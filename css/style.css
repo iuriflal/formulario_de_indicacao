@@ -1,0 +1,81 @@
+*{
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+}
+h1{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #343C64;
+}
+span{
+    font-family: Rubik;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #000000;
+}
+p{
+    font-family: Rubik;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #FFFFFF;
+}
+
+.container {
+    width: 100%;  /* Usa 90% da tela para se adaptar */
+    max-width: 425px; /* Máximo de 600px para não ficar muito largo */
+    margin: 0 auto;
+    height: 100dvh; /* Ocupa 100% da altura da tela */
+    background: linear-gradient(to top, #8ab4e4, #5484BC);
+    position: relative;
+}
+
+.header{
+    width: 100%;
+    padding: 0 12px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 75px 1fr;
+    background-color: #fff;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    position: relative;
+}
+.header img{
+    width: 100%;
+}
+
+.header h1{
+    right: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative;
+}
+
+
+
+.footer{
+    width: 100%;
+    bottom: 0;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    grid-template-columns: 75px 1fr;
+    background-color: #fff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    position: absolute;
+}
+.footer img{
+    width: 32px;
+    height: 18px;
+}
