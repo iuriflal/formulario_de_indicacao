@@ -1,4 +1,5 @@
 function enviarWhatsapp() {
+  let nomeEmpresa = document.getElementById("nome_empresa");
   let nomeIndicado = document.getElementById("nome_indicado");
   let telefoneIndicado = document.getElementById("telefone_indicado");
   let emailIndicado = document.getElementById("email_indicado");
@@ -6,11 +7,12 @@ function enviarWhatsapp() {
   let telefoneLimpo = telefoneIndicado.value.replace(/\D/g, ''); // Remove caracteres não numéricos
 
   // Resetar classes de erro
-  [nomeIndicado, telefoneIndicado, emailIndicado, seuNome].forEach(input => input.classList.remove('erro'));
+  [nomeEmpresa, nomeIndicado, telefoneIndicado, emailIndicado, seuNome].forEach(input => input.classList.remove('erro'));
 
-  if (!nomeIndicado.value || telefoneLimpo.length !== 11 || !emailIndicado || !seuNome.value) {
+  if (!nomeIndicado.value || !nomeEmpresa.value || telefoneLimpo.length !== 11 || !emailIndicado || !seuNome.value) {
       alert("Por favor, preencha todos os campos obrigatórios corretamente.");
       
+      if (!nomeEmpresa.value) nomeEmpresa.classList.add('erro');
       if (!nomeIndicado.value) nomeIndicado.classList.add('erro');
       if (telefoneLimpo.length !== 11) telefoneIndicado.classList.add('erro');
       if (!emailIndicado.value) emailIndicado.classList.add('erro');
@@ -21,6 +23,7 @@ function enviarWhatsapp() {
 
   let mensagem = 
       `*Indicação de Cliente*\n━━━━━━━━━━━━━━━━━━━\n` +
+      `*Nome da Empresa:* ${nomeEmpresa.value}\n` +
       `*Nome:* ${nomeIndicado.value}\n` +
       `*Telefone:* ${telefoneLimpo}\n` +
       (emailIndicado.value ? `*Email:* ${emailIndicado.value}\n` : '') +
@@ -50,9 +53,9 @@ document.getElementById('telefone_indicado').addEventListener('input', function 
  // Remove borda vermelha quando o usuário começa a digitar ou clica no campo
  document.querySelectorAll('input').forEach(input => {
   input.addEventListener('focus', function () {
-      this.classList.remove('erro');
+    this.classList.remove('erro');
   });
   input.addEventListener('input', function () {
-      this.classList.remove('erro');
+    this.classList.remove('erro');
   });
 });
